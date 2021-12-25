@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+body {
+ 
+    overflow-x:hidden;
+    background-color: #A8DADC;
+    font-family: 'Montserrat', sans-serif;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.img{
+  max-width: 100px;
+  align-items: center;
+  padding-top:10px;
+  padding-bottom: 10px;
+}
+
+.headergraphic{
+    border:turquoise solid;
+    padding-top:20px;
+    padding-bottom: 20px;
+    margin: -30px -40px;
+    margin-bottom: 50px;
+    border-radius: 500px;
+    background: #022236;
+    background: linear-gradient(-45deg,#0b1c33, #162944);
+    background-size: 4000% 4000%;
+    animation: gradient 10s ease infinite;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+
+}
+
+.stdhead{
+    margin: 200px;
+    color:rgb(233, 103, 103);
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+}
+
+.logo {
+
+    max-width: 60px;
+}
+.navbar{
+   margin-left: 8%;
+   margin-right: 8%;
+   margin-top: 30px;
+}
+
+.navmenu{
+    float: right;
+    margin-top: 0px;
+    padding-bottom: 0px;
+    display: inline-block;
+}
+
+.head{
+    border-color: transparent;
+    border-radius: 15px;
+    padding: 5px 10px 5px 10px;
+    margin-left: 5px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    color: rgb(252, 252, 252);
+    background: transparent;
+    border: transparent;
+    
+}
+
+.head:hover{
+    transition-duration: 0.4s;
+    background:#E63946;
+    border-radius: 0px;
+}
+
+.sign_in{
+  position: relative;
+  margin-top: 0px;
+  border-color: transparent;
+  border-radius: 15px;
+  padding: 8px 25px 8px 25px;
+  margin-left: 5px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 15px;
+  color: rgb(240, 84, 84);
+  background: #f0d1d8;
+  border: transparent;
+  
+}
+
+.sign_in:hover{
+  color: white;
+  transition-duration: 0.4s;
+  background:#E63946;
+  border-radius: 0px;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+* {
+	box-sizing: border-box;
+}
+
+.username{
+  color:rgb(9, 86, 117);
+  font-weight:bolder;
+  background:  #A8DADC;
+  border: #90c0db solid;
+  border-radius: 20px;
+  max-width: 300px;
+}
+
+.password{
+  max-width: 300px;
+  color:rgb(66, 121, 240);
+  font-weight:bolder;
+  background:  #A8DADC;
+  border: #90c0db solid;
+  border-radius: 20px;
+}
+
+.password:active{
+  border-radius: 100px;
+}
+
+.netbanking{
+  font-size:medium;
+  font-weight: 600;
+  color: #c43c5a
+}
+
+::placeholder{
+  color:rgb(15, 77, 85);
+}
+
+span {
+	font-size: 12px;
+}
+
+input {
+  caret-color: rgb(212, 194, 194);
+}
+
+input[type=username]:focus {
+  background: #c43c5a;
+  color: white;
+  transition-duration: 0.2s;
+  transform: scale(1.05);
+}
+
+input[type=password]:focus {
+  background: #c43c5a;
+  color: white;
+  transition-duration: 0.2s;
+  transform: scale(1.05);
+}
+
+a {
+  margin: 0px;
+	color: rgb(189, 206, 252);
+	font-size: 14px;
+	text-decoration: none;
+  margin-top: 15px;
+	margin-left: 15px;
+}
+
+.Eminent{
+  font-size: small;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  font-family: 'Montserrat', sans-serif;
+  color: #003261;
+}
+
+.logo{
+  margin: 0px;
+  max-width: 40px;
+  min-width: 40px;
+}
+
+.detail{
+  font-size: 15px;
+  margin-bottom: 30px;
+  color: #752929
+}
+
+.home_heads{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: rgb(27, 92, 136);
+}
+
+form {
+	background-color: #F1FAEE;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 50px;
+	height: 100%;
+	text-align: center;
+}
+
+
+
+
+input {
+	background-color: transparent;
+	border: ;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 100%;
+}
+
+.container {
+  margin-top: 50px;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 50px;
+	background-color: rgb(163, 185, 228);
+	border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(8, 161, 161, 0.25), 0 10px 10px rgba(2, 81, 100, 0.22);
+	position: relative;
+	overflow: hidden;
+	max-width: 100%;
+	min-height: 550px;
+}
+
+.container_home {
+  margin-bottom: 50px;
+  margin-top: 50px;
+  margin-left: 20%;
+  margin-right: 20%;
+	background-color: rgb(163, 185, 228);
+	border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(8, 161, 161, 0.25), 0 10px 10px rgba(2, 81, 100, 0.22);
+	position: relative;
+	overflow: hidden;
+	max-width: 100%;
+	min-height: 780px;
+}
+
+.fullLOGO{
+  max-width: 150px;
+  min-width: 150px;
+  background: transparent;
+}
+
+.forgot{
+  font-size: 10px;
+  color: #0b1c33;
+}
+
+.form-container {
+	position: absolute;
+	top: 0;
+	height: 100%;
+}
+
+.log-in-container {
+	left: 0;
+	width: 50%;
+	z-index: 2;
+}
+
+
+.overlay-container {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 50%;
+	height: 100%;
+}
+
+
+.overlay {
+	
+	background: linear-gradient(to right, #24d3ff, #0a3372);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 0 0;
+	color: #FFFFFF;
+	position: relative;
+	left: -100%;
+	height: 100%;
+	width: 200%;
+}
+
+.overlay-panel {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 40px;
+	text-align: center;
+	top: 0;
+	height: 100%;
+	width: 50%;
+}
+
+
+.overlay-right {
+	right: 0;
+}
+
