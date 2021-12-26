@@ -1,28 +1,34 @@
 <%- include("partials/header") %>
-    <div class="container" id="container">
-
-        <div class="form-container log-in-container">
-
-            <form action="/login" method="post">
-                <img class="logo" src="Resources/smallLOGO.png" alt="Eminent">
-                <h1 class="Eminent">Eminent Banking Solutions</h1>
-                <p class="detail">This is a Retail Netbanking Portal. You can manage your account securites online.</p>
-
-                <h1 class="netbanking">Personal Netbanking Portal</h1>
-                <input class="username" type="Username" placeholder="Username" name="email" />
-                <input class="password" type="Password" placeholder="Password" name="password" />
-                <button type="submit" class="sign_in">SIGN-IN</button>
-                <a class="forgot" href="#">Forgot your password?</a>
-            </form>
-
+    <% if (message.length> 0) { %>
+        <div class="alert alert-danger">
+            <%= message %>
         </div>
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-right">
-                    <img class="fullLOGO" src="Resources/smallLOGO.png" alt="Eminent">
+        <% } %>
+            <div class="container" id="container">
+
+                <div class="form-container log-in-container">
+
+                    <form action="/login" method="post">
+                        <img class="logo" src="Resources/smallLOGO.png" alt="Eminent">
+                        <h1 class="Eminent">Eminent Banking Solutions</h1>
+                        <p class="detail">This is a Retail Netbanking Portal. You can manage your account securites
+                            online.</p>
+
+                        <h1 class="netbanking">Personal Netbanking Portal</h1>
+                        <input class="username" type="Username" placeholder="Username" name="username" />
+                        <input class="password" type="Password" placeholder="Password" name="password" />
+                        <button type="submit" class="sign_in">SIGN-IN</button>
+                        <a class="forgot" href="#">Forgot your password?</a>
+                    </form>
 
                 </div>
+                <div class="overlay-container">
+                    <div class="overlay">
+                        <div class="overlay-panel overlay-right">
+                            <img class="fullLOGO" src="Resources/smallLOGO.png" alt="Eminent">
+
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <%- include("partials/footer") %>
+            <%- include("partials/footer") %>

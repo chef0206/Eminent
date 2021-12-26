@@ -12,13 +12,13 @@ var userSchema = mongoose.Schema({
     },
     personal         : {
         name         : String,
-        account      : Number,
-        pin          : Number,
-        contact      : Number,
+        accountNo    : String,
+        pin          : String,
+        contact      : String,
     },
     balance          : Number,
     creditCard       : [{
-        cardNumber       : Number,
+        cardNumber       : String,
         name             : String,
         expiry           : String
     }]
