@@ -11,10 +11,17 @@ var userSchema = mongoose.Schema({
         password     : String,
     },
     personal         : {
+        name         : String,
         account      : Number,
         pin          : Number,
+        contact      : Number,
     },
-    balance          : Number
+    balance          : Number,
+    creditCard       : [{
+        cardNumber       : Number,
+        name             : String,
+        expiry           : String
+    }]
 });
 
 // methods ======================

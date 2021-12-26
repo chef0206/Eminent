@@ -1,39 +1,50 @@
-<!doctype html>
-<html>
-<head>
-    <title>Node Authentication</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <style>
-        body        { padding-top:80px; word-wrap:break-word; }
-    </style>
-</head>
-<body>
-<div class="container">
-
-    <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+<%- include("partials/header") %>
+    <div class="title">
+        <h1>Profile</h1>
     </div>
 
-    <div class="row">
+    <div class="container_profile">
 
-        <!-- LOCAL INFORMATION -->
-        <div class="col-sm-6">
-            <div class="well">
-                <h3><span class="fa fa-user"></span> Local</h3>
+        <h3 class="profile"> Ashish Kumar Gupta | Customer ID: 123456543 </h3>
+        <h3 class="first">Account No: 12793872897123</h3>
+        <table class="conTable">
 
-                    <p>
-                        <strong>id</strong>: <%= user._id %><br>
-                        <strong>email</strong>: <%= user.local.email %><br>
-                        <strong>password</strong>: <%= user.local.password %>
-                    </p>
+            <tr>
+                <th>
+                    <h3>User ID:</h3>
+                </th>
+                <th>
+                    <p><%= user.local.email %></p>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <h3>Address:</h3>
+                </th>
+                <th>
+                    <p>afaeifjsfnssjfjs, sjefh</p>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <h3>Mobile No:</h3>
+                </th>
+                <th>
+                    <p>XXXXXXXXXX</p>
+                </th>
+            </tr>
+            <tr class="conLast">
+                <th class="conLast">
+                    <h3>Email:</h3>
+                </th>
+                <th class="conLast">
+                    <p>XXXXXXXXXX@gmail.com</p>
+                </th>
+            </tr>
 
-            </div>
-        </div>
+        </table>
 
+        <a class="forgotPassword" href="/">Forgot Password?</a>
+        <button class="logOut">Log out</button>
     </div>
-
-</div>
-</body>
-</html>
+    <%- include("partials/footer") %>

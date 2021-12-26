@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="Resources/smallLOGO.png" />
+    <link rel="stylesheet" href="CSS/styles.css" />
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <div class="headergraphic">
+        <div class="navbar">
+            <img class="logo" src="Resources/smallLOGO.png" alt="img" />
+            <ul class="navmenu">
+                <a href="/user"><button class="head" type="button">DASHBOARD</button></a>
+                <a href="/profile"><button class="head" type="button">PROFILE</button></a>
+                <a href=""><button class="head" type="button">FAQs</button></a>
+                <a href="/logout"><button class="head" type="button">LOGOUT</button></a>
+            </ul>
+        </div>
+    </div>
+
+    <div class="transfer_head">
+        <p class="transfer_wel"><button class="transfer_button">WELCOME ASHISH KUMAR GUPTA</button></p>
+        <p class="transfer_desc">This is the transfer portal. Enter the details carefully and proceed for instant
+            transfer. This is an intra-bank transfer interface. Thus, transferrable party must be enrolled with us.</p>
+    </div>
+
+    <div class="container_transfer" id="container">
+
+        <div class="form-container log-in-container">
+
+            <form action="#">
+                <img class="logo" src="/Resources/smallLOGO.png" alt="Eminent">
+                <h1 class="Eminent">Eminent Banking Solutions</h1>
+                <p class="detail">Enter the Details. Ensure stable internet connection while proceeding for the payment.
+                </p>
+
+                <h1 class="netbanking">Intra-Transfer Gateway</h1>
+                <input class="username" type="Username" placeholder="Name of Account Holder" />
+                <input class="password" type="Password" placeholder="Account Number" />
+                <input class="username" type="Username" placeholder="Confirm Account Number" />
+                <input class="username" type="Username" placeholder="IFSC Code" />
+                <input class="username" type="Username" placeholder="Amount(₹)" />
+                <a href=""><button type="button" class="sign_in">TRANSFER</button></a>
+            </form>
+
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-right">
+                    <img class="fullLOGO" src="/Resources/smallLOGO.png" alt="Eminent">
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include("partials/footer") %>

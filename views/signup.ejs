@@ -1,25 +1,38 @@
 <%- include("partials/header") %>
-    <div class="container" id="container">
-    
-		<div class="form-container log-in-container">
-            <% if (message.length > 0) { %>
-                <div class="alert alert-danger"><%= message %></div>
-            <% } %>
-			<form action="/signup" method="post">
-                 <img class="logo" src="Resources/smallLOGO.png" alt="Eminent">
-                 <h1 class="Eminent">Eminent Banking Solutions</h1>
-                 <p class="detail">This is a Retail Netbanking Portal. You can manage your account securites online.</p>
+    <% if (message.length> 0) { %>
+        <div class="alert alert-danger">
+            <%= message %>
+        </div>
+        <% } %>
+            <div class="container_register" id="container">
 
-				<h1 class="netbanking">Registration</h1>
-                <input class="username" type="number" placeholder="Account No." name="accNo" />
-                <input class="username" type="username" placeholder="Email ID" name="email" />
-				<input class="password" type="Password" placeholder="PIN" name="pin" />
-				<input class="username" type="Username" placeholder="Username" name="username" />
-				<input class="password" type="Password" placeholder="Password" name="password" />
-                <input class="password" type="Password" placeholder="Confirm Password" name="cpassword"/>
-                <button type="submit" class="sign_in">REGISTER</button>
-                <p>Already have an account? <a href=""><button type="button" class="sign_in">LOG-IN</button></a></p>
-			</form>
+                <div class="form-container log-in-container">
 
-		</div>
-<%- include("partials/aside") %>
+                    <form action="/signup" method="post">
+                        <img class="logo" src="Resources/smallLOGO.png" alt="Eminent">
+                        <h1 class="Eminent">Eminent Banking Solutions</h1>
+                        <p class="detail">This is a Retail Netbanking Portal. You can manage your account securites
+                            online.</p>
+
+                        <h1 class="netbanking">Registration</h1>
+                        <input class="username" type="username" placeholder="Account Number" name="accNo" />
+                        <input class="username" type="Password" placeholder="PIN" name="pin" />
+                        <input class="username" type="username" placeholder="Email ID" name="email" />
+                        <input class="username" type="Username" placeholder="Username" name="username" />
+                        <input class="password" type="Password" placeholder="Password" name="password" />
+                        <input class="password" type="Password" placeholder="Confirm Password" name="cpassword" />
+                        <button type="submit" class="sign_in">REGISTER</button>
+                        <a href="/login"><button class="already" type="button">ALREADY HAVE AN ACCOUNT?</button></a>
+                    </form>
+
+                </div>
+                <div class="overlay-container">
+                    <div class="overlay">
+                        <div class="overlay-panel overlay-right">
+                            <img class="fullLOGO" src="Resources/smallLOGO.png" alt="Eminent">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%- include("partials/footer") %>
