@@ -138,7 +138,7 @@ module.exports = function (passport) {
     },
     function(req, username, pin, done) { 
         var current = req.user.balance
-        update = {balance: current-req.body.amount}
+        update = {balance: current-req.body.sendamount}
         BankUser.findOneAndUpdate({ 'local.username' :  username }, update, {new: true}, function(err, foundUser) {
             if (err)
                 return done(err)
