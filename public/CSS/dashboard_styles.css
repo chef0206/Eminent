@@ -171,7 +171,7 @@ background: linear-gradient(27deg, rgba(2,0,36,1) 0%, rgba(7,77,132,1) 100%, rgb
   display: flex;
   align-items: flex-start;
   justify-content: left;
-  margin-bottom: 150px;
+  margin-bottom: 50px;
 }
 
 .card{
@@ -324,8 +324,7 @@ background: linear-gradient(27deg, rgba(2,0,36,1) 0%, rgba(7,77,132,1) 100%, rgb
 .profile{
     text-align: center;
     padding-top: 10px;
-    color: #E63946;
-    color: #E63946;
+    color: #a8dadc;
     background-color: #1D3557;
     border-radius: 10px 10px 0px 0px;
     padding-bottom: 10px;
@@ -471,4 +470,55 @@ table .last{
   color: #E63946;
   transition-duration: 0.2s;
   font-weight: bolder;
+}
+
+.history{
+  margin-left: 7.5%;
+  margin-bottom: 150px;
+}
+
+.history_text{
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  color: #022236;
+}
+
+.history_flex{
+  display: flex;
+  align-items: flex-start;
+  justify-content: left;
+}
+
+.history_block{
+  margin-right: 30px;
+  max-width: 300px;
+  border-radius: 10px;
+  background-color: #022236;
+  box-shadow: -1px 1px 26px 3px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: -1px 1px 26px 3px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: -1px 1px 26px 3px rgba(0, 0, 0, 0.25);
+  font-family: "Montserrat";
+  font-style: normal;
+  color: #a8dadc;
+}
+
+.history_body{
+  padding: 1px 20px 10px 20px;
+}
+
+.history_amount{
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.history_to{
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.history_accnum{
+  font-size: 20px;
+  font-weight: 400;
 }

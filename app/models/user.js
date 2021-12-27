@@ -26,7 +26,7 @@ var userSchema = mongoose.Schema({
     transaction      : [{
         sendAccount  : String,
         sendName     : String,
-        sendAmount   : Number,
+        sendAmount   : String,
     }]
 })
 

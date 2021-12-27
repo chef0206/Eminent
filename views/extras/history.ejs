@@ -1,0 +1,18 @@
+<div class="history">
+    <div class="history_text">
+        <p>Your Transaction History :</p>
+    </div>
+
+    <div class="history_flex">
+        <% user.transaction.forEach(function(item) { %>
+            <div class="history_block">
+                <div class="history_body">
+                    <p class="history_amount"><%= item.sendAmount %></p>
+                    <p class="history_to">To: <%= item.sendName %></p>
+                    <p class="history_accnum"><%= item.sendAccount %></p>
+                </div>
+            </div>
+            <%})%>
+
+    </div>
+</div>

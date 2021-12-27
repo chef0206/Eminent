@@ -16,6 +16,7 @@ module.exports = function(app, passport) {
         res.render('index.ejs', {user : req.user})
     })
 
+
     app.get('/money_transfer', isLoggedIn, function(req, res) {
         res.render('transfer', {user : req.user, message: req.flash('transferMessage')})
     })
@@ -24,9 +25,14 @@ module.exports = function(app, passport) {
         res.render('profile.ejs', {user: req.user})
     })
 
-    app.get('/calculator', function(req, res) {
-        res.render('calc')
+    app.get('/interestcalculator', isLoggedIn, function(req, res) {
+        res.render('calculators/interestcalc')
     })
+
+    app.get('/emicalculator', isLoggedIn, function(req, res) {
+        res.render('calculators/emicalc')
+    })
+
 
     app.get('/holidays', function(req, res) {
         res.render('holidays')

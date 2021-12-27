@@ -25,29 +25,29 @@
         </a>
       </div>
 
-      <div class="icon">
-        <a href="#">
+      <!-- <div class="icon">
+        <a href="/history">
           <img src="Resources/Logo_Apply.png" alt="img" />
-          <p class="icon_text">Apply for Loan</p>
+          <p class="icon_text">Transaction History</p>
         </a>
       </div>
 
       <div class="icon">
-        <a href="#">
+        <a href="/cards">
           <img src="Resources/Logo_Cards.png" alt="img" />
-          <p class="icon_text">Apply for Card</p>
+          <p class="icon_text">View Cards</p>
         </a>
-      </div>
+      </div> -->
 
       <div class="icon">
-        <a href="/calculator">
+        <a href="/interestcalculator">
           <img src="Resources/Logo_Calculator.png" alt="img" />
           <p class="icon_text">Interest Calculator</p>
         </a>
       </div>
 
       <div class="icon">
-        <a href="#">
+        <a href="emicalculator">
           <img src="Resources/Logo_Calculator.png" alt="img" />
           <p class="icon_text">EMI Calculator</p>
         </a>
@@ -61,11 +61,13 @@
       </div>
     </div>
 
-    <div class="cards">
+    <%- include('extras/card') %>
+    <%- include('extras/history') %>
+    <!-- <div class="cards">
       <div class="card_text">
         <p>Your Cards :</p>
-      </div>
-      <div class="card_flex">
+      </div> -->
+    <!-- <div class="card_flex">
         <% user.creditCard.forEach(function(item) { %>
 
           <div class="card">
@@ -85,8 +87,8 @@
           </div>
 
           <%})%>
-      </div>
-      <!-- <div class="card">
+      </div> -->
+    <!-- <div class="card">
         <div class="card_body">
           <p class="card_title">XXXX XXXX XXXX XXXX</p>
           <p class="card_name">Name LastName</p>
@@ -96,6 +98,6 @@
           </div>
         </div>
       </div> -->
-    </div>
+    <!-- </div> -->
   </main>
   <%- include('partials/footer') %>
