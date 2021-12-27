@@ -1,117 +1,101 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="Resources/smallLOGO.png"
-    />
-    <link rel="stylesheet" href="CSS/dashboard_styles.css" />
-    <title>Dashboard</title>
-  </head>
-  <body>
-    <div class="headergraphic">
-      <div class="navbar">
-        <img class="logo" src="Resources/smallLOGO.png" alt="img" />
-        <ul class="navmenu">
-          <a href="/"><button class="head" type="button">HOME</button></a>
-          <a href="/profile"><button class="head" type="button">PROFILE</button></a>
-          <a href=""><button class="head" type="button">FAQs</button></a>
-          <a href="/logout"><button class="head" type="button">LOGOUT</button></a>
-        </ul>
+<%- include('partials/dashboard_nav') %>
+
+  <main class="main">
+    <div class="container">
+      <div class="heading">
+        <p class="dashboard_text">Dashboard</p>
+        <h4 class="welcome">Welcome <%= user.personal.name %>
+        </h4>
       </div>
     </div>
 
-    <main class="main">
-      <div class="container">
-        <div class="heading">
-          <p class="dashboard_text">Dashboard</p>
-          <h4 class="welcome">Welcome Username</h4>
-        </div>
+    <div class="box">
+      <div class="balance_display">
+        <p class="balance">
+          <%= user.balance %>/-
+        </p>
+      </div>
+    </div>
+
+    <div class="icons">
+      <div class="icon">
+        <a href="/money_transfer">
+          <img src="Resources/Logo_Transfer.png" alt="img" />
+          <p class="icon_text">Transfer Money</p>
+        </a>
       </div>
 
-      <div class="box">
-        <div class="balance_display">
-          <p class="balance">Current Balance: 50000/-</p>
-        </div>
+      <div class="icon">
+        <a href="#">
+          <img src="Resources/Logo_Apply.png" alt="img" />
+          <p class="icon_text">Apply for Loan</p>
+        </a>
       </div>
 
-      <div class="icons">
-        <div class="icon">
-          <a href="/money_transfer">
-            <img src="Resources/Logo_Transfer.png" alt="img" />
-            <p class="icon_text">Transfer Money</p>
-          </a>
-        </div>
-
-        <div class="icon">
-          <a href="#">
-            <img src="Resources/Logo_Apply.png" alt="img" />
-            <p class="icon_text">Apply for Loan</p>
-          </a>
-        </div>
-
-        <div class="icon">
-          <a href="#">
-            <img src="Resources/Logo_Cards.png" alt="img" />
-            <p class="icon_text">Apply for Card</p>
-          </a>
-        </div>
-
-        <div class="icon">
-          <a href="/calculator">
-            <img src="Resources/Logo_Calculator.png" alt="img" />
-            <p class="icon_text">Interest Calculator</p>
-          </a>
-        </div>
-
-        <div class="icon">
-          <a href="#">
-            <img src="Resources/Logo_Calculator.png" alt="img" />
-            <p class="icon_text">EMI Calculator</p>
-          </a>
-        </div>
-
-        <div class="icon">
-          <a href="/holidays" target="_blank">
-            <img src="Resources/Logo_Holiday.png" alt="img" />
-            <p class="icon_text">Bank Holidays</p>
-          </a>
-        </div>
+      <div class="icon">
+        <a href="#">
+          <img src="Resources/Logo_Cards.png" alt="img" />
+          <p class="icon_text">Apply for Card</p>
+        </a>
       </div>
 
-      <div class="cards">
-        <div class="card_text">
-          <p>Your Cards :</p>
-        </div>
+      <div class="icon">
+        <a href="/calculator">
+          <img src="Resources/Logo_Calculator.png" alt="img" />
+          <p class="icon_text">Interest Calculator</p>
+        </a>
+      </div>
 
-        <div class="card_flex">
+      <div class="icon">
+        <a href="#">
+          <img src="Resources/Logo_Calculator.png" alt="img" />
+          <p class="icon_text">EMI Calculator</p>
+        </a>
+      </div>
+
+      <div class="icon">
+        <a href="/holidays" target="_blank">
+          <img src="Resources/Logo_Holiday.png" alt="img" />
+          <p class="icon_text">Bank Holidays</p>
+        </a>
+      </div>
+    </div>
+
+    <div class="cards">
+      <div class="card_text">
+        <p>Your Cards :</p>
+      </div>
+      <div class="card_flex">
+        <% user.creditCard.forEach(function(item) { %>
+
           <div class="card">
             <div class="card_body">
-              <p class="card_title">XXXX XXXX XXXX XXXX</p>
-              <p class="card_name">Name LastName</p>
+              <p class="card_title">
+                <%= item.cardNumber %>
+              </p>
+              <p class="card_name">
+                <%= item.cardname %>
+              </p>
               <div class="card_footer">
-                <p class="card_date">Expiry Date :</p>
+                <p class="card_date">Expiry:<%= item.expiry %>
+                </p>
                 <img src="Resources/smallLOGO.svg" alt="img" />
               </div>
             </div>
           </div>
 
-          <div class="card">
-            <div class="card_body">
-              <p class="card_title">XXXX XXXX XXXX XXXX</p>
-              <p class="card_name">Name LastName</p>
-              <div class="card_footer">
-                <p class="card_date">Expiry Date :</p>
-                <img src="Resources/smallLOGO.svg" alt="img" />
-              </div>
-            </div>
+          <%})%>
+      </div>
+      <!-- <div class="card">
+        <div class="card_body">
+          <p class="card_title">XXXX XXXX XXXX XXXX</p>
+          <p class="card_name">Name LastName</p>
+          <div class="card_footer">
+            <p class="card_date">Expiry Date :</p>
+            <img src="Resources/smallLOGO.svg" alt="img" />
           </div>
         </div>
-      </div>
-    </main>
-  </body>
-</html>
+      </div> -->
+    </div>
+  </main>
+  <%- include('partials/footer') %>

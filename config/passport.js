@@ -2,8 +2,8 @@
 var LocalStrategy = require('passport-local').Strategy
 
 // load up the user model
-var User = require('../app/models/user')
-var Account = require('../app/models/accounts')
+var BankUser = require('../app/models/user')
+var account = require('../app/models/accounts')
 
 // expose this function to our app using module.exports
 module.exports = function (passport) {
@@ -21,7 +21,7 @@ module.exports = function (passport) {
 
     // used to deserialize the user
     passport.deserializeUser(function (id, done) {
-        User.findById(id, function (err, user) {
+        BankUser.findById(id, function (err, user) {
             done(err, user)
         })
     })
@@ -45,68 +45,62 @@ module.exports = function (passport) {
             process.nextTick(function () {
                 
 
-                // find a user whose email is the same as the forms email
-                // we are checking to see if the user trying to login already exists
-                User.findOne({ 'local.username': username }, function (err, user) {
-                    // if there are any errors, return the error
-                    if (err)
+                account.findOne({accountNo: req.body.accountNo}, function(err, foundAccount) {
+                    if(err)
                         return done(err)
-
-                    // check to see if theres already a user with that email
-                    if (user) {
-            
-                        return done(null, false, req.flash('signupMessage', 'Username Taken.'))
-                    }
-                    // if(password != cpassword){
-                    //     return done(null, false, req.flash('signupMessage', 'Password Doesnt match'))
-                    // } 
-                    else {
-
-                        var newUser = new User()
-                        Account.findOne({accountNo: req.body.accountNo}, function(err, foundAccount) {
-                            if(err)
+                    if(!foundAccount)
+                        return done(null, false, req.flash('signupMessage', 'Account Not found'))
+                    if(!foundAccount.validPassword(req.body.pin))
+                        return done(null, false, req.flash('signupMessage', 'Incorrect Pin'))
+                    else{
+                        
+                        BankUser.findOne({ 'local.username': username }, function (err, user) {
+                            // if there are any errors, return the error
+                            if (err)
                                 return done(err)
-                            if(!foundAccount)
-                                return done(null, false, req.flash('signupMessage', 'Account Not found'))
-                            if(!foundAccount.validPassword(req.body.pin))
-                                return done(null, false, req.flash('signupMessage', 'Incorrect Pin'))
-                            else{
+        
+                            // check to see if theres already a user with that email
+                            if (user) {
+                    
+                                return done(null, false, req.flash('signupMessage', 'Username already taken.'))
+                            }
+                            if(req.body.password != req.body.cpassword){
+                                return done(null, false, req.flash('signupMessage', 'Password Does not match'))
+                            } 
+                            else {
+        
+                                var newUser = new BankUser()
+                        
                                 newUser.personal.accountNo = req.body.accountNo
                                 newUser.personal.pin = foundAccount.pin
                                 newUser.personal.contact = foundAccount.contact
                                 newUser.personal.name = foundAccount.name
-                                
+                                newUser.personal.address = foundAccount.address
+                                newUser.creditCard = foundAccount.creditCard
+                                newUser.local.email = req.body.email
+                                newUser.local.password = newUser.generateHash(password)
+                                newUser.local.username = username
+                                newUser.balance = 40000
+        
+                                // save the user
+                                newUser.save(function (err) {
+                                    if (err)
+                                        throw err
+                                    return done(null, newUser)
+                                })
                             }
-                        })
-
-                        // if there is no user with that email
-                        // create the user
-
-                        // set the user's local credentials
-                        newUser.local.email = req.body.email
-                        newUser.local.password = newUser.generateHash(password)
-                        newUser.local.username = username
-                        newUser.balance = 50000
-
-                        // save the user
-                        newUser.save(function (err) {
-                            if (err)
-                                throw err
-                            return done(null, newUser)
+        
                         })
                     }
-
                 })
+
+                // find a user whose email is the same as the forms email
+                // we are checking to see if the user trying to login already exists
 
             })
 
         }))
 
-    // =========================================================================
-    // LOCAL LOGIN =============================================================
-    // =========================================================================
-    // we are using named strategies since we have one for login and one for signup
-    // by default, if there was no name, it would just be called 'local'
 
     passport.use('local-login', new LocalStrategy({
         // by default, local strategy uses username and password, we will override with email
@@ -114,11 +108,8 @@ module.exports = function (passport) {
         passwordField : 'password',
         passReqToCallback : true // allows us to pass back the entire request to the callback
     },
-    function(req, username, password, done) { // callback with email and password from our form
-
-        // find a user whose email is the same as the forms email
-        // we are checking to see if the user trying to login already exists
-        User.findOne({ 'local.username' :  username }, function(err, user) {
+    function(req, username, password, done) { 
+        BankUser.findOne({ 'local.username' :  username }, function(err, user) {
             // if there are any errors, return the error before anything else
             if (err)
                 return done(err)
@@ -135,6 +126,38 @@ module.exports = function (passport) {
 
             // all is well, return successful user
             return done(null, user)
+        })
+
+    }))
+
+    passport.use('local-transfer', new LocalStrategy({
+        // by default, local strategy uses username and password, we will override with email
+        usernameField : 'username',
+        passwordField : 'pin',
+        passReqToCallback : true // allows us to pass back the entire request to the callback
+    },
+    function(req, username, pin, done) { 
+        var current = req.user.balance
+        update = {balance: current-req.body.amount}
+        BankUser.findOneAndUpdate({ 'local.username' :  username }, update, {new: true}, function(err, foundUser) {
+            if (err)
+                return done(err)
+
+            if (!foundUser.validPin(pin)){
+                return done(null, false, req.flash('transferMessage', 'Oops! Wrong pin.')) // create the loginMessage and save it to session as flashdata
+            }
+            updates = {"$push" : {transaction: [{
+
+                    sendAccount: req.body.sendaccount,
+                    sendName: req.body.sendname,
+                    sendAmount: req.body.sendamount,
+                }
+                ] }}
+            BankUser.findOneAndUpdate({'local.username' : username}, updates, {new: true}, function(err, upadateTransaction) {
+                if(err)
+                    return done(err)
+            })
+            return done(null, foundUser)
         })
 
     }))

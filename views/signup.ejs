@@ -1,20 +1,20 @@
 <%- include("partials/header") %>
-    <% if (message.length> 0) { %>
-        <div class="alert alert-danger">
-            <%= message %>
-        </div>
-        <% } %>
-            <div class="container_register" id="container">
+    <div class="container_register" id="container">
 
-                <div class="form-container log-in-container">
+        <div class="form-container log-in-container">
 
-                    <form action="/signup" method="post">
-                        <img class="logo" src="Resources/smallLOGO.png" alt="Eminent">
-                        <h1 class="Eminent">Eminent Banking Solutions</h1>
-                        <p class="detail">This is a Retail Netbanking Portal. You can manage your account securites
-                            online.</p>
+            <form action="/signup" method="post">
+                <img class="logo" src="Resources/smallLOGO.png" alt="Eminent">
+                <h1 class="Eminent">Eminent Banking Solutions</h1>
+                <p class="detail">This is a Retail Netbanking Portal. You can manage your account securites
+                    online.</p>
 
-                        <h1 class="netbanking">Registration</h1>
+                <h1 class="netbanking">Registration</h1>
+                <% if (message.length> 0) { %>
+                    <div class="alert alert-danger">
+                        <%= message %>
+                    </div>
+                    <% } %>
                         <input class="username" type="username" placeholder="Account Number" name="accountNo" />
                         <input class="username" type="Password" placeholder="PIN" name="pin" />
                         <input class="username" type="username" placeholder="Email ID" name="email" />
@@ -23,16 +23,16 @@
                         <input class="password" type="Password" placeholder="Confirm Password" name="cpassword" />
                         <button type="submit" class="sign_in">REGISTER</button>
                         <a href="/login"><button class="already" type="button">ALREADY HAVE AN ACCOUNT?</button></a>
-                    </form>
+            </form>
 
-                </div>
-                <div class="overlay-container">
-                    <div class="overlay">
-                        <div class="overlay-panel overlay-right">
-                            <img class="fullLOGO" src="Resources/smallLOGO.png" alt="Eminent">
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-right">
+                    <img class="fullLOGO" src="Resources/smallLOGO.png" alt="Eminent">
 
-                        </div>
-                    </div>
                 </div>
             </div>
-            <%- include("partials/footer") %>
+        </div>
+    </div>
+    <%- include("partials/footer") %>

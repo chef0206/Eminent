@@ -9,6 +9,12 @@ var accountSchema = mongoose.Schema({
     contact          : String,
     address          : String,
     name             : String,
+
+    creditCard       : [{
+        cardNumber       : String,
+        cardname         : String,
+        expiry           : String
+    }]
 });
 
 // methods ======================
@@ -23,4 +29,4 @@ accountSchema.methods.validPassword = function(pin) {
 };
 
 // create the model for users and expose it to our app
-module.exports = mongoose.model('Account', accountSchema);
+module.exports = mongoose.model('account', accountSchema);

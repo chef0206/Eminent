@@ -16,7 +16,7 @@ var session      = require('express-session');
 var configDB = require('./config/database.js');
 
 // configuration ===============================================================
-mongoose.connect(configDB.url); // connect to our database
+mongoose.connect(configDB.url, {useNewUrlParser: true}); // connect to our database
 
 require('./config/passport')(passport); // pass passport for configuration
 
@@ -47,14 +47,27 @@ require('./app/routes.js')(app, passport); // load our routes and pass in our ap
 app.listen(port);
 console.log('The magic happens on port ' + port);
 
-var Account = require('./app/models/accounts')
+// var Account = require('./app/models/accounts')
+// var account = "2021991123405"
+// update = {"$set" : {creditCard: [{
 
-var newAccount = new Account()
+//     cardNumber: "9873 8453 2398 2351",
+//     expiry: "05/25",
+//     cardname: "Chinmay Bhalodiya"
+// },
+// {
+//     cardNumber: "9873 9234 2394 2934",
+//     expiry: "07/22",
+//     cardname: "Chinmay Bhalodiya"
 
-newAccount.accountNo = "2021909986452"
-newAccount.pin = newAccount.generateHash("9134")
-newAccount.contact = "+91 87094 94652"
-newAccount.address = "402 Magalam Building, Kolkata, West Bengal, 700001"
-newAccount.name = "Ashish Kumar Gupta"
+// }
 
-// newAccount.save()
+// ] }}
+// Account.findOneAndUpdate({accountNo: account}, update, {new: true}, function(err, update) {
+//     if(err)
+//         console.log(err)
+
+//     console.log("card added")
+// })
+
+// // newAccount.save()

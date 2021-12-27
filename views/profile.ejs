@@ -1,50 +1,50 @@
-<%- include("partials/header") %>
+<%- include("partials/dashboard_nav") %>
     <div class="title">
         <h1>Profile</h1>
     </div>
 
     <div class="container_profile">
 
-        <h3 class="profile"> Ashish Kumar Gupta | Customer ID: 123456543 </h3>
-        <h3 class="first">Account No: 12793872897123</h3>
+        <h3 class="profile"><%= user.personal.name %></h3>
+        <h3 class="first">Account No: <%= user.personal.accountNo %></h3>
         <table class="conTable">
 
             <tr>
                 <th>
-                    <h3>User ID:</h3>
+                    <h3 class="profile_h3">User ID:</h3>
                 </th>
                 <th>
-                    <p><%= user.local.email %></p>
-                </th>
-            </tr>
-            <tr>
-                <th>
-                    <h3>Address:</h3>
-                </th>
-                <th>
-                    <p>afaeifjsfnssjfjs, sjefh</p>
+                    <p class="profile_p"><%= user.local.username %></p>
                 </th>
             </tr>
             <tr>
                 <th>
-                    <h3>Mobile No:</h3>
+                    <h3 class="profile_h3">Address:</h3>
                 </th>
                 <th>
-                    <p>XXXXXXXXXX</p>
+                    <p class="profile_p"><%= user.personal.address %></p>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <h3 class="profile_h3">Mobile No:</h3>
+                </th>
+                <th>
+                    <p class="profile_p"><%= user.personal.contact %></p>
                 </th>
             </tr>
             <tr class="conLast">
                 <th class="conLast">
-                    <h3>Email:</h3>
+                    <h3 class="profile_h3">Email:</h3>
                 </th>
                 <th class="conLast">
-                    <p>XXXXXXXXXX@gmail.com</p>
+                    <p class="profile_p"><%= user.local.email %></p>
                 </th>
             </tr>
 
         </table>
 
-        <a class="forgotPassword" href="/">Forgot Password?</a>
-        <button class="logOut">Log out</button>
+        <a class="forgotPassword" href="#">Forgot Password?</a>
+        <a href="/logout"><button class="logOut">Log out</button></a>
     </div>
     <%- include("partials/footer") %>

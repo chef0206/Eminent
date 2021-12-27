@@ -24,7 +24,7 @@
     </div>
 
     <div class="transfer_head">
-        <p class="transfer_wel"><button class="transfer_button">WELCOME ASHISH KUMAR GUPTA</button></p>
+        <p class="transfer_wel"><button class="transfer_button">WELCOME <%= user.personal.name %></button></p>
         <p class="transfer_desc">This is the transfer portal. Enter the details carefully and proceed for instant
             transfer. This is an intra-bank transfer interface. Thus, transferrable party must be enrolled with us.</p>
     </div>
@@ -33,26 +33,32 @@
 
         <div class="form-container log-in-container">
 
-            <form action="#">
-                <img class="logo" src="/Resources/smallLOGO.png" alt="Eminent">
+            <form action="/money_transfer" method="post">
+                <img class="logo" src="Resources/smallLOGO.png" alt="Eminent">
                 <h1 class="Eminent">Eminent Banking Solutions</h1>
                 <p class="detail">Enter the Details. Ensure stable internet connection while proceeding for the payment.
                 </p>
 
                 <h1 class="netbanking">Intra-Transfer Gateway</h1>
-                <input class="username" type="Username" placeholder="Name of Account Holder" />
-                <input class="password" type="Password" placeholder="Account Number" />
-                <input class="username" type="Username" placeholder="Confirm Account Number" />
-                <input class="username" type="Username" placeholder="IFSC Code" />
-                <input class="username" type="Username" placeholder="Amount(₹)" />
-                <a href=""><button type="button" class="sign_in">TRANSFER</button></a>
+                <% if (message.length> 0) { %>
+                    <div class="alert alert-danger">
+                        <%= message %>
+                    </div>
+                    <% } %>
+                        <input class="username" type="Username" placeholder="Name of Account Holder" name="sendname" />
+                        <input class="password" type="Password" placeholder="Account Number" name="sendaccount" />
+                        <input class="username" type="Username" placeholder="IFSC Code" />
+                        <input class="username" type="Username" placeholder="Amount(₹)" name="amount" name="sendamount"/>
+                        <input class="username" type="Password" placeholder="PIN" name="pin" />
+                        <input type="hidden" value="<%= user.local.username %>" name="username" />
+                        <button type="submit" class="sign_in">TRANSFER</button>
             </form>
 
         </div>
         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-panel overlay-right">
-                    <img class="fullLOGO" src="/Resources/smallLOGO.png" alt="Eminent">
+                    <img class="fullLOGO" src="Resources/smallLOGO.png" alt="Eminent">
                 </div>
             </div>
         </div>

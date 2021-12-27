@@ -13,13 +13,11 @@ module.exports = function(app, passport) {
     })
 
     app.get('/user', isLoggedIn, function(req, res) {
-        res.render('index.ejs', {
-            user : req.user // get the user out of session and pass to template
-        })
+        res.render('index.ejs', {user : req.user})
     })
 
     app.get('/money_transfer', isLoggedIn, function(req, res) {
-        res.render('transfer')
+        res.render('transfer', {user : req.user, message: req.flash('transferMessage')})
     })
 
     app.get('/profile', isLoggedIn, function(req, res) {
@@ -49,6 +47,12 @@ module.exports = function(app, passport) {
         successRedirect : '/user', // redirect to the secure profile section
         failureRedirect : '/login', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
+    }))
+
+    app.post('/money_transfer', passport.authenticate('local-transfer', {
+        successRedirect : '/user',
+        failureRedirect : '/money_transfer',
+        failureFlash : true
     }))
 }
 
