@@ -10,7 +10,8 @@
   "author": "",
   "license": "ISC",
   "engines": {
-    "node": "16.13.1"
+    "node": "16.13.1",
+    "npm" : "8.1.2"
   },
   "dependencies": {
     "alert": "^5.0.10",
