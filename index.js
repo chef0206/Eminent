@@ -43,12 +43,13 @@ app.use(flash()) // use connect-flash for flash messages stored in session
 require('./app/routes.js')(app, passport) // load our routes and pass in our app and fully configured passport
 
 // launch ======================================================================
-let port = process.env.PORT
+let port = "https://nameless-stream-47384.herokuapp.com/"
 if (port == null || port == "") {
   port = 8000
 }
 app.listen(port)
 console.log('The magic happens on port ' + port)
+console.log(process.env.PORT)
 
 
 // var Account = require('./app/models/accounts')
