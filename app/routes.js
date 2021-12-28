@@ -1,6 +1,6 @@
 module.exports = function(app, passport) {
 
-    app.get('https://pacific-bayou-68037.herokuapp.com/', function(req, res) {
+    app.get('/', function(req, res) {
         res.render('home.ejs')
     })
     app.get('/login', function(req, res) {
