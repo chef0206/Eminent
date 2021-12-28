@@ -44,12 +44,9 @@ require('./app/routes.js')(app, passport) // load our routes and pass in our app
 
 // launch ======================================================================
 
-let port = process.env.PORT
-if (port == null || port == "") {
-    port = 3000;
-  }
-app.listen(port, function(){
-    console.log('The magic happens on port ' + port)
+
+app.listen(3000, function(){
+    console.log('The magic happens on port ' + 3000)
 })
 
 
