@@ -1,19 +1,19 @@
 module.exports = function(app, passport) {
 
     app.get('/', function(req, res) {
-        res.render('home.ejs')
+        res.render('home')
     })
     app.get('/login', function(req, res) {
-        res.render('login.ejs', { message: req.flash('loginMessage') })
+        res.render('login', { message: req.flash('loginMessage') })
     })
 
     app.get('/signup', function(req, res) {
 
-        res.render('signup.ejs', { message: req.flash('signupMessage') })
+        res.render('signup', { message: req.flash('signupMessage') })
     })
 
     app.get('/user', isLoggedIn, function(req, res) {
-        res.render('index.ejs', {user : req.user})
+        res.render('index', {user : req.user})
     })
 
 
@@ -22,7 +22,7 @@ module.exports = function(app, passport) {
     })
 
     app.get('/profile', isLoggedIn, function(req, res) {
-        res.render('profile.ejs', {user: req.user})
+        res.render('profile', {user: req.user})
     })
 
     app.get('/interestcalculator', isLoggedIn, function(req, res) {
