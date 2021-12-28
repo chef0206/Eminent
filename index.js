@@ -50,6 +50,7 @@ if (port == null || port == "") {
 app.listen(port)
 console.log('The magic happens on port ' + port)
 
+
 // var Account = require('./app/models/accounts')
 // var account = "2021991123405"
 // update = {"$set" : {creditCard: [{
